@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黄鹤楼 - 武汉地标，千年文化传承">
+    <title>黄鹤楼 - 千年文化传承</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="./css/styles.css" as="style">
+    <link rel="preload" href="./js/main.js" as="script">
+    
+    <!-- 字体资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 样式表 -->
+    <link rel="stylesheet" href="./css/styles.css?v=1.0.0">
+    
+    <!-- Service Worker 注册 -->
+    <script>
+        // 版本号，用于缓存控制
+        const APP_VERSION = '1.0.0';
+        
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js?v=' + APP_VERSION)
+                    .then(registration => {
+                        console.log('ServiceWorker 注册成功: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('ServiceWorker 注册失败: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- 加载指示器 -->
+    <div id="loading-indicator">
+        <div class="loading-spinner"></div>
+        <p>加载中...</p>
+    </div>
+    
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-logo">
+                    <h1>黄鹤楼</h1>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#history" class="nav-link">历史背景</a></li>
+                    <li class="nav-item"><a href="#architecture" class="nav-link">建筑特色</a></li>
+                    <li class="nav-item"><a href="#culture" class="nav-link">文化意义</a></li>
+                    <li class="nav-item"><a href="#poetry" class="nav-link">名人题咏</a></li>
+                    <li class="nav-item"><a href="#ai-assistant" class="nav-link">AI问答</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- 主要内容 -->
+        <main class="main">
+            <!-- 首页横幅 -->
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h2 class="hero-title">黄鹤楼</h2>
+                    <p class="hero-subtitle">天下江山第一楼</p>
+                    <div class="hero-video-container">
+                        <div class="video-player" data-video-id="BV1864y1T7nq" data-video-title="黄鹤楼宣传片《黄鹤归来》">
+                            <div class="video-placeholder">
+                                <img src="./images/hero-video-thumb.jpg" alt="黄鹤楼宣传片封面" class="video-thumbnail" onerror="this.src='./images/placeholder.svg'">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 历史背景 -->
+            <section class="section history-section" id="history">
+                <div class="section-header">
+                    <h2 class="section-title">历史背景</h2>
+                    <div class="section-decoration"></div>
+                </div>
+                <div class="section-content">
+                    <div class="history-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="./images/history-1.jpg" alt="黄鹤楼历史照片1" class="carousel-image" onerror="this.src='./images/placeholder.svg'">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/history-2.jpg" alt="黄鹤楼历史照片2" class="carousel-image" onerror="this.src='./images/placeholder.svg'">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/history-3.jpg" alt="黄鹤楼历史照片3" class="carousel-image" onerror="this.src='./images/placeholder.svg'">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators"></div>
+                        <button class="carousel-control prev">&#10094;</button>
+                        <button class="carousel-control next">&#10095;</button>
+                    </div>
+                    <div class="history-text">
+                        <p>黄鹤楼位于湖北省武汉市长江南岸的蛇山顶端，濒临万里长江，自古享有"天下江山第一楼"和"天下绝景"之称。黄鹤楼始建于三国时代吴黄武二年（公元223年），最初是作为军事瞭望塔而建。历史上，黄鹤楼屡建屡毁，仅在明清两代就曾被毁7次，重建和维修了10次。</p>
+                        <p>唐代诗人崔颢的"昔人已乘黄鹤去，此地空余黄鹤楼"使黄鹤楼闻名遐迩。历史上的黄鹤楼主楼以清代同治七年（1868年）重建的最具特色，但不幸于光绪十年（1884年）被大火烧毁。现今的黄鹤楼于1985年建成，距离清代黄鹤楼被毁的时间正好是100年。新楼系钢筋混凝土结构仿木建筑，高5层，占地1330平方米，建筑面积3219平方米，主楼以清同治楼为雏形，运用现代建筑技术施工，使这座千年古楼重现辉煌。</p>
+                        <div class="history-video-container">
+                            <div class="video-player" data-video-id="BV1RWtWeQEDc" data-video-title=""跟着课本读中国" | 湖北篇：黄鹤楼——历史变迁的见证者">
+                                <div class="video-placeholder">
+                                    <img src="./images/history-video-thumb.jpg" alt="黄鹤楼历史视频封面" class="video-thumbnail" onerror="this.src='./images/placeholder.svg'">
+                                    <div class="video-play-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 建筑特色 -->
+            <section class="section architecture-section" id="architecture">
+                <div class="section-header">
+                    <h2 class="section-title">建筑特色</h2>
+                    <div class="section-decoration"></div>
+                </div>
+                <div class="section-content">
+                    <div class="architecture-comparison">
+                        <div class="architecture-image">
+                            <img src="./images/architecture-main.jpg" alt="黄鹤楼整体建筑" class="architecture-main-image" onerror="this.src='./images/placeholder.svg'">
+                            <p class="image-caption">黄鹤楼整体建筑</p>
+                        </div>
+                        <div class="architecture-image">
+                            <img src="./images/architecture-detail.jpg" alt="黄鹤楼局部细节" class="architecture-detail-image" onerror="this.src='./images/placeholder.svg'">
+                            <p class="image-caption">黄鹤楼局部细节</p>
+                        </div>
+                    </div>
+                    <div class="architecture-text">
+                        <h3>楼阁结构</h3>
+                        <p>黄鹤楼为钢筋混凝土框架仿木结构，高51.4米，底层边宽30米，顶层边宽18米，全楼各层重叠，飞檐高翘，外观五层，内有九层，实为三层带夹层。楼顶覆盖金色琉璃瓦，攒尖顶，饰有宝瓶。楼内有电梯直达顶层，登楼远眺，"浩浩汤汤，横无际涯"的长江景色尽收眼底。</p>
+                        
+                        <h3>斗拱系统</h3>
+                        <p>黄鹤楼的斗拱系统是其建筑特色之一，采用了中国传统建筑的斗拱结构，既美观又实用。斗拱不仅起到了支撑和传递荷载的作用，还使建筑外观更加精美。黄鹤楼的斗拱设计精巧，层次分明，展现了中国古代建筑的高超技艺。</p>
+                        
+                        <h3>飞檐设计</h3>
+                        <p>黄鹤楼的飞檐设计独具特色，五层飞檐翘角，层层收分，形成了优美的轮廓线。飞檐的设计不仅增加了建筑的美感，还有利于雨水排泄，保护了建筑主体。飞檐上的装饰精美，体现了中国传统建筑的精湛工艺。</p>
+                        
+                        <div class="architecture-video-container">
+                            <div class="video-player" data-video-id="BV1uX4y137uE" data-video-title="浪摄流 | 黄鹤楼2021年最新宣传片《黄鹤新语》">
+                                <div class="video-placeholder">
+                                    <img src="./images/architecture-video-thumb.jpg" alt="黄鹤楼建筑视频封面" class="video-thumbnail" onerror="this.src='./images/placeholder.svg'">
+                                    <div class="video-play-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 文化意义 -->
+            <section class="section culture-section" id="culture">
+                <div class="section-header">
+                    <h2 class="section-title">文化意义</h2>
+                    <div class="section-decoration"></div>
+                </div>
+                <div class="section-content">
+                    <div class="culture-background">
+                        <img src="./images/culture-bg.jpg" alt="黄鹤楼文化背景" class="culture-bg-image" onerror="this.src='./images/placeholder.svg'">
+                        <div class="culture-overlay"></div>
+                    </div>
+                    <div class="culture-text">
+                        <h3>诗词文化</h3>
+                        <p>黄鹤楼是中国古代文学的重要意象，无数文人墨客在此留下了不朽诗篇。唐代诗人崔颢的《黄鹤楼》被誉为"七律第一"，李白的《黄鹤楼送孟浩然之广陵》更是家喻户晓。这些诗词不仅描绘了黄鹤楼的壮丽景色，更寄托了诗人的情感与思考，使黄鹤楼成为了中国诗词文化的重要象征。</p>
+                        
+                        <h3>长江文化</h3>
+                        <p>黄鹤楼坐落于长江之滨，是长江文化的重要载体。长江是中国第一大河，孕育了中华文明。黄鹤楼作为长江沿岸的标志性建筑，见证了长江文化的繁荣与发展。它不仅是地理上的标志，更是文化上的象征，代表了中华民族对自然的敬畏与赞美。</p>
+                        
+                        <h3>民族精神</h3>
+                        <p>黄鹤楼历经千年沧桑，屡毁屡建，体现了中华民族坚韧不拔的精神。它不仅是武汉的象征，更是中华民族精神的象征。黄鹤楼所承载的历史记忆和文化内涵，激励着一代又一代中国人奋发图强，为中华民族的伟大复兴而努力奋斗。</p>
+                        
+                        <div class="culture-video-container">
+                            <div class="video-player" data-video-id="BV1qY411c7WK" data-video-title="来武汉，为什么一定要去黄鹤楼？">
+                                <div class="video-placeholder">
+                                    <img src="./images/culture-video-thumb.jpg" alt="黄鹤楼文化视频封面" class="video-thumbnail" onerror="this.src='./images/placeholder.svg'">
+                                    <div class="video-play-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 名人题咏 -->
+            <section class="section poetry-section" id="poetry">
+                <div class="section-header">
+                    <h2 class="section-title">名人题咏</h2>
+                    <div class="section-decoration"></div>
+                </div>
+                <div class="section-content">
+                    <div class="poetry-grid">
+                        <div class="poetry-item">
+                            <div class="poetry-image">
+                                <img src="./images/poetry-1.jpg" alt="黄鹤楼诗词插图1" class="poetry-illustration" onerror="this.src='./images/placeholder.svg'">
+                            </div>
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼》</h3>
+                                <p class="poet">唐·崔颢</p>
+                                <div class="poem-text">
+                                    <p>昔人已乘黄鹤去，此地空余黄鹤楼。</p>
+                                    <p>黄鹤一去不复返，白云千载空悠悠。</p>
+                                    <p>晴川历历汉阳树，芳草萋萋鹦鹉洲。</p>
+                                    <p>日暮乡关何处是？烟波江上使人愁。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poetry-item">
+                            <div class="poetry-image">
+                                <img src="./images/poetry-2.jpg" alt="黄鹤楼诗词插图2" class="poetry-illustration" onerror="this.src='./images/placeholder.svg'">
+                            </div>
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼送孟浩然之广陵》</h3>
+                                <p class="poet">唐·李白</p>
+                                <div class="poem-text">
+                                    <p>故人西辞黄鹤楼，烟花三月下扬州。</p>
+                                    <p>孤帆远影碧空尽，唯见长江天际流。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poetry-item">
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼》</h3>
+                                <p class="poet">唐·杜甫</p>
+                                <div class="poem-text">
+                                    <p>昔闻洞庭水，今上岳阳楼。</p>
+                                    <p>吴楚东南坼，乾坤日夜浮。</p>
+                                    <p>亲朋无一字，老病有孤舟。</p>
+                                    <p>戎马关山北，凭轩涕泗流。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poetry-item">
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼》</h3>
+                                <p class="poet">宋·陆游</p>
+                                <div class="poem-text">
+                                    <p>苍龙阙角归何晚，黄鹤楼中醉不知。</p>
+                                    <p>江汉交流波渺渺，晋唐遗迹草离离。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poetry-item">
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼》</h3>
+                                <p class="poet">元·赵孟頫</p>
+                                <div class="poem-text">
+                                    <p>昔人已乘黄鹤去，此地空余黄鹤楼。</p>
+                                    <p>黄鹤一去不复返，白云千载空悠悠。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="poetry-item">
+                            <div class="poetry-content">
+                                <h3>《黄鹤楼》</h3>
+                                <p class="poet">明·唐寅</p>
+                                <div class="poem-text">
+                                    <p>抱琴来傍黄鹤楼，楼中鹤去几千秋。</p>
+                                    <p>仙人一去无消息，江水自流山自幽。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="poetry-video-container">
+                        <div class="video-player" data-video-id="BV1NH82egEbi" data-video-title="【【武漢 · 黄鹤楼】】">
+                            <div class="video-placeholder">
+                                <img src="./images/poetry-video-thumb.jpg" alt="黄鹤楼诗词视频封面" class="video-thumbnail" onerror="this.src='./images/placeholder.svg'">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- AI助手 -->
+            <section class="section ai-section" id="ai-assistant">
+                <div class="section-header">
+                    <h2 class="section-title">黄鹤楼诗词问答</h2>
+                    <div class="section-decoration"></div>
+                </div>
+                <div class="section-content">
+                    <div class="ai-container">
+                        <div class="ai-interface">
+                            <div class="ai-messages" id="ai-messages">
+                                <div class="ai-message ai-welcome">
+                                    <div class="ai-avatar"></div>
+                                    <div class="ai-bubble">
+                                        <p>您好！我是黄鹤楼诗词AI助手，您可以向我询问关于黄鹤楼历史、建筑、文化、诗词等方面的问题。请问有什么可以帮助您的吗？</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ai-input-container">
+                                <input type="text" id="ai-input" class="ai-input" placeholder="请输入您的问题...">
+                                <button id="ai-send" class="ai-send-button">发送</button>
+                                <button id="ai-voice" class="ai-voice-button"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 黄鹤楼文化传承项目. 保留所有权利.</p>
+                <p>本网站适用于NFC芯片嵌入，提供黄鹤楼历史文化信息</p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top" aria-label="返回顶部">
+        <span>&uarr;</span>
+    </button>
+    
+    <!-- 夜间模式切换 -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="切换夜间模式">
+        <span class="theme-icon"></span>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="./js/video-loader.js?v=1.0.0" defer></script>
+    <script src="./js/main.js?v=1.0.0" defer></script>
+</body>
+</html>
